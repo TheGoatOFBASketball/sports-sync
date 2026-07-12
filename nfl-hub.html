@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:8000 https://site.api.espn.com https://site.web.api.espn.com https://sports.core.api.espn.com https://www.thesportsdb.com https://api.rss2json.com https://api.allorigins.win https://balldontlie.io https://v3.football.api-sports.io; frame-ancestors 'none'; base-uri 'self'">
+  <title>NFL Hub | SPORTSYNC</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="espn-api.js" defer></script>
+  <script src="thesportsdb-api.js" defer></script>
+</head>
+<body>
+  <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</a>
+  <main class="nba-page">
+    <!-- Unified hub hero strip for NFL -->
+    <section class="hub-hero" id="hub-hero-nfl" aria-label="NFL Hub Hero">
+      <div class="hub-hero-inner">
+        <h1 class="hub-hero-title">NFL Hub</h1>
+        <p class="hub-hero-subtitle">Live scores, standings, news, and schedule</p>
+      </div>
+      <div class="hub-hero-live" id="heroLiveStripNFL"></div>
+    </section>
+    <section class="sec">
+      <div class="nba-hero" style="padding:20px 24px; text-align:left;">
+        <h1>NFL Hub</h1>
+        <p>Your home for live NFL scores, standings, and NFL news</p>
+      </div>
+      <div class="nba-grid" style="grid-template-columns: 1fr 1fr; gap:20px;">
+        <div class="nba-card" id="live-scores">
+          <div class="nba-card-header"><h3><i class="fa-solid fa-football"></i> Live NFL Scores</h3><span class="live-indicator"><span class="live-dot"></span> LIVE</span></div>
+          <div class="game-list" id="nfl-live" style="padding:12px;"></div>
+        </div>
+        <div class="nba-card" id="nfl-news">
+          <div class="nba-card-header"><h3><i class="fa-solid fa-newspaper"></i> NFL News</h3></div>
+          <div id="nfl-news-list" style="padding:12px; font-size:0.9rem; color:var(--t2);"></div>
+        </div>
+      </div>
+    </section>
+    <section class="sec" id="nfl-standings">
+      <div class="sec-bar"><h2><span class="ab"></span> Standings</h2></div>
+      <div class="standings" id="nfl-standings"></div>
+    </section>
+  </main>
+  <script>
+    function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+(async function(){
+      try{
+        const nflData = await SPORTSYNC_API.ESPN.getScoreboard('nfl');
+        const games = nflData?.events ?? [];
+        const container = document.getElementById('nfl-live');
+        if (container && games.length) {
+          container.innerHTML = games.map(g => {
+            const home = g.home?.abbr ?? g.home?.name ?? '';
+            const away = g.away?.abbr ?? g.away?.name ?? '';
+            const hs = g.home?.score ?? g.home?.points ?? '';
+            const as = g.away?.score ?? g.away?.points ?? '';
+            const awayLogo = (away || '').slice(0,2);
+            const homeLogo = (home || '').slice(0,2);
+            return `<div class="game-item live"><div class="game-teams"><span class="team-logo-sm">${esc(awayLogo)}</span><span class="team-name">${esc(away)}</span><span class="team-score">${esc(as)}</span></div><div class="game-teams" style="justify-content:flex-end"><span class="team-name">${esc(home)}</span><span class="team-logo-sm">${esc(homeLogo)}</span><span class="team-score">${esc(hs)}</span></div></div>`;
+          }).join('');
+        }
+      } catch(e){ console.error(e); }
+      const newsList = document.getElementById('nfl-news-list');
+      if (newsList) newsList.innerHTML = '<div>NFL: Breaking news placeholder.</div>';
+    })();
+  </script>
+  <script>
+    (async function(){
+      try {
+        const standings = await SPORTSYNC_API.ESPN.getStandings('nfl');
+        const container = document.getElementById('nfl-standings');
+        if (container && Array.isArray(standings)) {
+          container.innerHTML = standings.map(s => `
+            <div class="standings-row" aria-label="${s.name} standings">
+              <span class="rank">${s.rank}</span>
+              <span class="team-name">${s.name} <span class="team-abbr">${s.abbr || ''}</span></span>
+              <span class="stat">${s.wins}-${s.losses}</span>
+              <span class="stat">${s.gb ?? ''}</span>
+              <span class="stat">${s.pct ?? ''}</span>
+            </div>`).join('');
+        }
+      } catch(_){ /* no standings yet */ }
+    })();
+  </script>
+</body>
+</html>
