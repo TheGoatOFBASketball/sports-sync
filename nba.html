@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:8000 https://site.api.espn.com https://site.web.api.espn.com https://sports.core.api.espn.com https://www.thesportsdb.com https://api.rss2json.com https://api.allorigins.win https://balldontlie.io https://v3.football.api-sports.io; frame-ancestors 'none'; base-uri 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.bunny.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.bunny.net https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:8000 https://site.api.espn.com https://site.web.api.espn.com https://sports.core.api.espn.com https://www.thesportsdb.com https://api.rss2json.com https://api.allorigins.win https://balldontlie.io https://v3.football.api-sports.io; frame-ancestors 'none'; base-uri 'self'">
 <title>NBA Games — Live NBA Scores | NBA.com</title>
 <meta name="description" content="Complete NBA coverage — Live scores, standings, player stats, contracts, salary cap, free agents, March Madness, and Draft."/>
 <meta name="theme-color" content="#051c2d"/>
@@ -12,9 +12,8 @@
 <script src="espn-api.js" defer></script>
 
 <script src="players-data.js" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Condensed:wght@400;600;700;800&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link href="https://fonts.bunny.net/css?family=roboto:400,500,700,900|roboto-condensed:400,600,700,800|roboto-slab:400,700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -621,195 +620,22 @@ body[data-theme="dark"]{background:#051c2d !important;font-family:"Inter",-apple
 [data-theme="dark"] .scoreboard-empty h3{color:#fff;font-weight:700;margin-top:6px}
 </style>
 
-<style id="summer-league">
-/* ===== Summer League 2026 light theme tokens ===== */
-body[data-theme="light"]{background:#f5f6f8 !important;color:#1d1d1f;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
-:root{--sl-red:#c8102e;--sl-red-dark:#a30c24;--sl-navy:#0a1428;--sl-text:#1d1d1f;--sl-muted:#6b7280;--sl-border:#e5e7eb;--sl-bg:#f5f6f8;--sl-card:#ffffff;--sl-green:#16a34a}
-
-/* Topbar: NBA.com-style — solid black with NBA logo + horizontal nav */
-.sl-topbar{background:#000;color:#fff;padding:0 20px;display:flex;align-items:center;height:48px;position:sticky;top:0;z-index:300;gap:0;box-shadow:0 1px 8px rgba(0,0,0,.4)}
-.sl-logo{display:flex;align-items:center;gap:6px;text-decoration:none;color:#fff;font-weight:800;letter-spacing:.5px}
-.sl-logo svg{width:46px;height:32px;display:block;filter:drop-shadow(0 0 8px rgba(200,16,46,.25))}
-.sl-logo-text{display:none}
-.sl-nav{display:flex;align-items:center;gap:2px;margin-left:24px;overflow-x:auto;scrollbar-width:none}
-.sl-nav::-webkit-scrollbar{display:none}
-.sl-nav a{padding:0 14px;height:48px;display:inline-flex;align-items:center;color:#ddd;font-size:12.5px;font-weight:600;letter-spacing:.3px;text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent;transition:.15s}
-.sl-nav a:hover{color:#fff;background:rgba(255,255,255,.05)}
-.sl-nav a.active{color:#fff;border-bottom-color:var(--sl-red);background:rgba(200,16,46,.08)}
-.sl-nav a.live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sl-red);margin-right:6px;animation:blink 1s infinite}
-.sl-topbar-right{margin-left:auto;display:flex;align-items:center;gap:14px}
-.sl-topbar-right a{color:#ddd;font-size:12px;font-weight:700;letter-spacing:.3px;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border-radius:4px;transition:.15s}
-.sl-topbar-right a:hover{color:#fff;background:rgba(255,255,255,.08)}
-.sl-topbar-right .sl-signin{background:var(--sl-red);color:#fff;padding:7px 16px;border-radius:4px;font-weight:800;letter-spacing:.6px}
-.sl-topbar-right .sl-signin:hover{background:var(--sl-red-dark)}
-@media(max-width:900px){.sl-nav{display:none}.sl-mobile-burger{display:inline-flex !important}}
-.sl-mobile-burger{display:none;background:none;border:0;color:#fff;font-size:18px;padding:6px 10px;cursor:pointer}
-
-/* Subnav secondary row */
-.sl-subnav{background:#fff;border-bottom:1px solid var(--sl-border);display:flex;align-items:center;padding:0 20px;gap:0;position:sticky;top:48px;z-index:280;overflow-x:auto;scrollbar-width:none;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.sl-subnav::-webkit-scrollbar{display:none}
-.sl-subnav a{padding:14px 16px;font-size:13px;font-weight:600;color:var(--sl-muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:.15s}
-.sl-subnav a:hover{color:var(--sl-text)}
-.sl-subnav a.active{color:var(--sl-red);border-bottom-color:var(--sl-red)}
-
-/* Hero/Title block */
-.sl-page{max-width:1280px;margin:24px auto;padding:0 20px}
-.sl-page-title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;font-size:36px;font-weight:900;color:var(--sl-navy);margin:0 0 4px;letter-spacing:-1px;display:flex;align-items:baseline;gap:14px}
-.sl-page-title .sl-year{color:var(--sl-red);font-weight:900;letter-spacing:-1px}
-.sl-page-sub{color:var(--sl-muted);font-size:14px;font-weight:500;margin-bottom:24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.sl-page-sub .sl-pill{background:var(--sl-red);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:3px;letter-spacing:1px;text-transform:uppercase}
-.sl-page-sub a{color:var(--sl-text);font-weight:600;text-decoration:none;border-bottom:1px solid var(--sl-border)}
-
-/* Date picker */
-.sl-datebar{display:flex;align-items:center;gap:14px;background:var(--sl-card);border:1px solid var(--sl-border);border-radius:10px;padding:10px 14px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.sl-arrow{width:34px;height:34px;border-radius:6px;background:#fff;border:1px solid var(--sl-border);color:var(--sl-muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s;flex-shrink:0}
-.sl-arrow:hover{background:#f9fafb;color:var(--sl-text);border-color:#d1d5db}
-.sl-month-label{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--sl-navy);letter-spacing:.3px;min-width:140px;flex-shrink:0}
-.sl-month-label i{color:var(--sl-red);font-size:14px}
-.sl-date-chips{display:flex;gap:4px;overflow-x:auto;padding:4px 0;scrollbar-width:none;flex:1;min-width:0}
-.sl-date-chips::-webkit-scrollbar{display:none}
-.sl-date-chip{flex-shrink:0;padding:6px 9px;border-radius:6px;font-size:10.5px;font-weight:700;color:var(--sl-muted);background:#fff;border:1px solid var(--sl-border);cursor:pointer;text-align:center;min-width:42px;transition:.15s;line-height:1.15}
-.sl-date-chip:hover{color:var(--sl-text);background:#f9fafb;border-color:#d1d5db}
-.sl-date-chip.active{background:var(--sl-red);border-color:var(--sl-red);color:#fff;box-shadow:0 2px 8px rgba(200,16,46,.4)}
-.sl-date-chip .chip-day{font-size:8.5px;display:block;letter-spacing:.4px;text-transform:uppercase;font-weight:600;opacity:.8}
-.sl-date-chip .chip-date{font-size:14px;font-weight:900;display:block;line-height:1}
-.sl-date-chip.today{border:1.5px dashed var(--sl-red)}
-
-/* Two-column body */
-.sl-body{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
-@media(max-width:1100px){.sl-body{grid-template-columns:1fr}}
-
-/* Game card */
-.sl-games{display:flex;flex-direction:column;gap:10px}
-.sl-game-card{background:var(--sl-card);border:1px solid var(--sl-border);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:1fr auto auto 1fr;align-items:center;gap:14px;transition:.18s;box-shadow:0 1px 2px rgba(0,0,0,.02)}
-.sl-game-card:hover{border-color:var(--sl-red);box-shadow:0 4px 14px rgba(200,16,46,.12);transform:translateY(-1px)}
-.sl-game-eta{font-size:11px;font-weight:800;color:var(--sl-muted);text-transform:uppercase;letter-spacing:.5px;display:flex;flex-direction:column;align-items:flex-start;gap:3px}
-.sl-game-eta .time{font-size:22px;font-weight:900;color:var(--sl-navy);letter-spacing:-.5px}
-.sl-game-eta .label{font-size:9px;font-weight:700;color:var(--sl-red);text-transform:uppercase;letter-spacing:.8px}
-.sl-matchup{display:flex;flex-direction:column;gap:6px;min-width:0}
-.sl-team{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--sl-text)}
-.sl-team-away{flex-direction:row}
-.sl-team-home{flex-direction:row-reverse;text-align:right}
-.sl-team-logo{width:34px;height:34px;border-radius:6px;background:#f3f4f6;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:800;color:#fff;overflow:hidden}
-.sl-team-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sl-team-record{font-size:11px;color:var(--sl-muted);font-weight:500}
-.sl-tv-badge{display:flex;align-items:center;gap:6px;flex-shrink:0}
-.sl-tv-logo{height:18px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;padding:0 8px;font-size:9.5px;font-weight:800;color:#fff;letter-spacing:.5px;text-transform:uppercase;min-width:54px}
-.sl-tv-logo.espn{background:#d40021}
-.sl-tv-logo.espn2{background:#000}
-.sl-tv-logo.prime{background:#00a8e1}
-.sl-tv-logo.nbatv{background:var(--sl-red)}
-.sl-tv-logo.tnt{background:#fc6e22}
-.sl-tv-logo.espnplus{background:#7c3aed}
-.sl-game-actions{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
-.sl-btn{padding:8px 14px;font-size:11px;font-weight:700;border-radius:6px;text-align:center;cursor:pointer;text-decoration:none;letter-spacing:.3px;border:1px solid transparent;transition:.18s;min-width:90px}
-.sl-btn.preview{background:#fff;color:var(--sl-text);border-color:var(--sl-border)}
-.sl-btn.preview:hover{border-color:var(--sl-red);color:var(--sl-red)}
-.sl-btn.tickets{background:var(--sl-red);color:#fff;border-color:var(--sl-red)}
-.sl-btn.tickets:hover{background:var(--sl-red-dark);border-color:var(--sl-red-dark);transform:translateY(-1px);box-shadow:0 4px 10px rgba(200,16,46,.3)}
-@media(max-width:700px){.sl-game-card{grid-template-columns:1fr;text-align:center;gap:10px}.sl-game-eta{align-items:center}.sl-game-actions{flex-direction:row;justify-content:center}.sl-team-home{flex-direction:row;text-align:left}}
-
-/* Sidebar */
-.sl-sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:100px}
-.sl-widget{background:var(--sl-card);border:1px solid var(--sl-border);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.sl-widget-header{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;background:var(--sl-navy);color:#fff}
-.sl-widget-header h3{font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin:0;display:flex;align-items:center;gap:6px}
-.sl-widget-header h3 i{color:var(--sl-red);font-size:12px}
-.sl-widget-header .sl-meta{font-size:10px;color:rgba(255,255,255,.6);font-weight:600}
-.sl-leader-tabs{display:flex;background:#f3f4f6;border-bottom:1px solid var(--sl-border)}
-.sl-leader-tab{flex:1;padding:8px 6px;text-align:center;font-size:10.5px;font-weight:700;color:var(--sl-muted);text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:.15s}
-.sl-leader-tab:hover{color:var(--sl-text)}
-.sl-leader-tab.active{color:var(--sl-red);background:#fff;box-shadow:inset 0 -2px 0 0 var(--sl-red)}
-.sl-leader-row{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid #f3f4f6;transition:.12s}
-.sl-leader-row:hover{background:#f9fafb}
-.sl-leader-row:last-child{border-bottom:0}
-.sl-leader-rank{font-size:11px;font-weight:800;color:var(--sl-muted);text-align:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
-.sl-leader-rank.top{color:var(--sl-red)}
-.sl-leader-info{display:flex;align-items:center;gap:10px;min-width:0}
-.sl-leader-avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#d4d4d8,#a1a1aa);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0}
-.sl-leader-name{font-size:12.5px;font-weight:700;color:var(--sl-text);line-height:1.2}
-.sl-leader-team{font-size:10px;color:var(--sl-muted);font-weight:600}
-.sl-leader-stat{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;font-size:16px;font-weight:900;color:var(--sl-navy);letter-spacing:-.3px}
-
-/* Promo box (red gradient) */
-.sl-promo{background:linear-gradient(135deg,var(--sl-red) 0%,#7a0a1a 100%);border-radius:10px;padding:18px 18px 20px;color:#fff;position:relative;overflow:hidden;box-shadow:0 6px 20px rgba(200,16,46,.35);cursor:pointer;border:1px solid var(--sl-red-dark)}
-.sl-promo::before{content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(255,255,255,.18) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.sl-promo-eyebrow{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:10px}
-.sl-promo-title{font-size:22px;font-weight:900;letter-spacing:.5px;line-height:1.1;text-transform:uppercase;margin:0 0 4px}
-.sl-promo-sub{font-size:13px;color:rgba(255,255,255,.9);font-weight:500;margin-bottom:14px;line-height:1.4}
-.sl-promo-cta{display:inline-block;background:#fff;color:var(--sl-red);font-size:12px;font-weight:800;letter-spacing:.6px;padding:9px 18px;border-radius:6px;text-decoration:none;text-transform:uppercase;transition:.18s;box-shadow:0 2px 6px rgba(0,0,0,.2)}
-.sl-promo-cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.3)}
-.sl-promo-marquee{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.2);font-size:10.5px;color:rgba(255,255,255,.8);letter-spacing:.5px;font-weight:700;text-transform:uppercase;display:flex;align-items:center;gap:6px}
-.sl-promo-marquee i{color:#ffd700;animation:blink 1.5s infinite}
-
-/* Headlines */
-.sl-headlines{padding:6px 0}
-.sl-headline{display:flex;gap:11px;padding:11px 14px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:.12s}
-.sl-headline:hover{background:#f9fafb}
-.sl-headline:last-child{border-bottom:0}
-.sl-headline-img{width:64px;height:48px;border-radius:5px;background:linear-gradient(135deg,#1d428a,#0a1428);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:11px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
-.sl-headline-img.sl-h2{background:linear-gradient(135deg,var(--sl-red),var(--sl-red-dark))}
-.sl-headline-img.sl-h3{background:linear-gradient(135deg,#1d428a,#0a1428)}
-.sl-headline-img.sl-h4{background:linear-gradient(135deg,#16a34a,#15803d)}
-.sl-headline-img.sl-h5{background:linear-gradient(135deg,#fc6e22,#c2410c)}
-.sl-headline-tag{font-size:9.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sl-red);margin-bottom:3px}
-.sl-headline-title{font-size:12.5px;font-weight:700;color:var(--sl-text);line-height:1.3}
-.sl-headline-meta{font-size:10px;color:var(--sl-muted);margin-top:3px;font-weight:600}
-
-/* Sleeper Switch to dark mode reminder */
-.sl-reset-bar{background:#f3f4f6;border-bottom:1px solid var(--sl-border);padding:8px 20px;font-size:11px;color:var(--sl-muted);display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap}
-.sl-reset-bar b{color:var(--sl-red);font-weight:800;letter-spacing:.5px}
-.sl-reset-bar a{color:var(--sl-red);font-weight:700;text-decoration:none;border-bottom:1px dashed var(--sl-red);padding:0 4px;cursor:pointer}
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
-<header class="sl-topbar">
-  <a href="index.html" class="sl-logo" title="Back to Sports Sync">
-    <svg viewBox="0 0 54 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="54" height="40" rx="4" fill="#c8102e"/>
-      <rect x="27" width="27" height="40" fill="#1d428a"/>
-      <circle cx="27" cy="20" r="9.5" fill="none" stroke="#fff" stroke-width="2.2"/>
-      <path d="M27 7 L30 12 L36 13 L31 17 L33 23 L27 20 L21 23 L23 17 L18 13 L24 12 Z" fill="#fff"/>
-    </svg>
-    <span class="sl-logo-text">NBA</span>
-  </a>
-  <nav class="sl-nav">
-    <a class="active" href="#"><i class="fas fa-basketball-ball" style="margin-right:6px"></i>Games</a>
-    <a href="#"><i class="fas fa-sun" style="margin-right:6px;color:#ffd700"></i>Summer League</a>
-    <a href="#"><i class="fas fa-calendar" style="margin-right:6px"></i>Schedule</a>
-    <a href="#" class="live"><i class="fas fa-circle" style="margin-right:6px"></i>Watch</a>
-    <a href="#"><i class="fas fa-newspaper" style="margin-right:6px"></i>News</a>
-    <a href="#"><i class="fas fa-handshake" style="margin-right:6px"></i>Free Agency</a>
-    <a href="#"><i class="fas fa-user-graduate" style="margin-right:6px"></i>Draft</a>
-    <a href="#"><i class="fas fa-trophy" style="margin-right:6px"></i>NBA Cup</a>
-    <a href="#"><i class="fas fa-chart-bar" style="margin-right:6px"></i>Stats</a>
-    <a href="#"><i class="fas fa-list-ol" style="margin-right:6px"></i>Standings</a>
-    <a href="#"><i class="fas fa-shield-alt" style="margin-right:6px"></i>Teams</a>
-    <a href="#"><i class="fas fa-user" style="margin-right:6px"></i>Players</a>
-  </nav>
-  <button class="sl-mobile-burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
-  <div class="sl-topbar-right">
-    <a href="#" title="NBA League Pass"><i class="fas fa-play-circle"></i> League Pass</a>
-    <a href="#" title="NBA Store"><i class="fas fa-shopping-bag"></i> Store</a>
-    <a href="#" class="sl-signin">Sign In</a>
+<header class="nba-topbar">
+  <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Home</a>
+  <span class="divider"></span>
+  <span class="league-badge">NBA</span>
+  <span class="page-title">Scores &amp; Schedule</span>
+  <span class="live-pill" id="livePill"><span class="dot"></span> Live</span>
+  <div class="spacer"></div>
+  <div class="topbar-links">
+    <a href="https://www.nba.com" target="_blank" class="topbar-link">NBA.com</a>
+    <a href="https://www.espn.com/nba/scoreboard" target="_blank" class="topbar-link">ESPN</a>
   </div>
 </header>
-<nav class="sl-subnav">
-  <a class="active" href="#"><i class="fas fa-trophy"></i> Summer League 2026</a>
-  <a href="#">California Classic</a>
-  <a href="#">Salt Lake City</a>
-  <a href="#">Las Vegas Classic</a>
-  <a href="#">Standings</a>
-  <a href="#">Stats Leaders</a>
-  <a href="#">Schedule</a>
-  <a href="#">Rosters</a>
-  <a href="#">Bracket</a>
-  <a href="#">News</a>
-  <a href="#">Tickets</a>
-</nav>
-<div class="sl-reset-bar"><b>NBA Summer League 2026</b> demo of the official NBA.com style <a id="slThemeToggle">switch to dark theme</a></div>
 
 <!-- HERO -->
 <section class="nba-hero">
@@ -868,52 +694,7 @@ body[data-theme="light"]{background:#f5f6f8 !important;color:#1d1d1f;font-family
   <!-- CONTENT -->
   <main class="nba-content">
 
-    <!-- SCORES PANEL -->
-    <section class="nba-panel active" id="panel-summer-league">
-  <div class="sl-page">
-    <h1 class="sl-page-title">NBA Summer League <span class="sl-year">2026</span></h1>
-    <div class="sl-page-sub">
-      <span class="sl-pill">LIVE NOW</span>
-      <span>July 11, 2026 · Las Vegas · California Classic · Salt Lake City</span>
-      <a href="#"><i class="fas fa-share-alt"></i> Share</a>
-      <a href="#"><i class="fas fa-print"></i> Print</a>
-    </div>
-
-    <div class="sl-datebar" id="slDatebar">
-      <span class="sl-arrow" id="slMonthPrev"><i class="fas fa-chevron-left"></i></span>
-      <span class="sl-month-label"><i class="far fa-calendar-alt"></i> July 2026</span>
-      <div class="sl-date-chips" id="slDateChips"></div>
-      <span class="sl-arrow" id="slMonthNext"><i class="fas fa-chevron-right"></i></span>
-    </div>
-
-    <div class="sl-body">
-      <div class="sl-games" id="slGames"></div>
-      <aside class="sl-sidebar">
-        <div class="sl-widget">
-          <div class="sl-widget-header"><h3><i class="fas fa-chart-line"></i> Season Leaders</h3><span class="sl-meta">2026</span></div>
-          <div class="sl-leader-tabs" id="slLeaderTabs">
-            <div class="sl-leader-tab active" data-stat="pts">PTS</div>
-            <div class="sl-leader-tab" data-stat="reb">REB</div>
-            <div class="sl-leader-tab" data-stat="ast">AST</div>
-          </div>
-          <div id="slLeaderRows"></div>
-        </div>
-        <div class="sl-promo" id="slPromo">
-          <span class="sl-promo-eyebrow">NBA League Pass</span>
-          <h3 class="sl-promo-title">Tap to Watch<br/>Summer League</h3>
-          <p class="sl-promo-sub">Every game. Every court. Stream all 72 matchups live or on demand.</p>
-          <a class="sl-promo-cta" href="#">Subscribe Now</a>
-          <div class="sl-promo-marquee"><i class="fas fa-bolt"></i> 3 games streaming now</div>
-        </div>
-        <div class="sl-widget">
-          <div class="sl-widget-header"><h3><i class="fas fa-newspaper"></i> Headlines</h3><span class="sl-meta">7 stories</span></div>
-          <div class="sl-headlines" id="slHeadlines"></div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-    <section class="nba-panel" id="panel-scores">
+    <section class="nba-panel active" id="panel-scores">
       <div class="sc-card">
         <div class="sc-card-header">
           <span class="sc-card-title"><i class="fas fa-calendar-alt"></i> Select Date</span>
@@ -20875,7 +20656,7 @@ const NBA_DRAFT_DATA = {
     {pick:47,team:"Seattle SuperSonics",abbr:"okc",player:"Ron Riley",pos:"",college:"Arizona State",ht:"6'8\"",wt:195,cls:"",age:45.6,pts:null,reb:null,ast:null,blk:0.4,stl:0.5,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null,fg_pct:0.41},
     {pick:48,team:"Philadelphia 76ers",abbr:"phi",player:"Jamie Feick",pos:"",college:"Michigan State",ht:"6'8\"",wt:255,cls:"",age:22.0,pts:4.5,reb:7.1,ast:0.7,blk:0.5,stl:0.6,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-2.7,fg_pct:0.424,fg3_pct:0.386},
     {pick:49,team:"Orlando Magic",abbr:"orl",player:"Amal McCaskill",pos:"",college:"Marquette",ht:"6'11\"",wt:235,cls:"",age:22.7,pts:1.8,reb:1.9,ast:0.3,blk:0.3,stl:0.2,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-4.7,fg_pct:0.377,fg3_pct:0.0},
-    {pick:50,team:"Houston Rockets",abbr:"hou",player:"Terrell Bell",pos:"",college:"Georgia",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
+    {pick:50,team:"Houston Rockets",abbr:"hou",player:"Terrell Bell",pos:"",college:"Georgia",ht:"6'10\"",wt:240,cls:"",age:22.5,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:51,team:"Vancouver Grizzlies",abbr:"mem",player:"Chris Robinson",pos:"",college:"Western Kentucky",ht:"6'5\"",wt:200,cls:"",age:22.2,pts:4.6,reb:1.5,ast:1.4,blk:0.2,stl:0.6,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-4.0,fg_pct:0.375,fg3_pct:0.371},
     {pick:52,team:"Indiana Pacers",abbr:"ind",player:"Mark Pope",pos:"",college:"Kentucky",ht:"6'10\"",wt:235,cls:"",age:23.8,pts:1.9,reb:1.7,ast:0.4,blk:0.3,stl:0.2,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-4.3,fg_pct:0.401,fg3_pct:0.179},
     {pick:53,team:"Milwaukee Bucks",abbr:"mil",player:"Jeff Nordgaard",pos:"",college:"Green Bay",ht:"6'7\"",wt:225,cls:"",age:23.3,pts:1.4,reb:1.1,ast:0.2,blk:null,stl:0.2,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-3.7,fg_pct:0.278},
@@ -23214,9 +22995,9 @@ const NBA_DRAFT_DATA = {
     {pick:32,team:"New York Knicks",abbr:"ny",player:"John Rudd",pos:"",college:"McNeese State University",ht:"6'7\"",wt:230,cls:"",age:22.9,pts:3.2,reb:2.9,ast:0.6,blk:0.1,stl:0.3,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-3.8,fg_pct:0.444},
     {pick:33,team:"Cleveland Cavaliers",abbr:"cle",player:"Harry Davis",pos:"",college:"Florida State",ht:"6'7\"",wt:220,cls:"",age:22.4,pts:4.0,reb:1.6,ast:0.4,blk:0.2,stl:0.3,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-4.0,fg_pct:0.436},
     {pick:34,team:"New York Knicks",abbr:"ny",player:"Greg Bunch",pos:"",college:"Cal State Fullerton",ht:"6'6\"",wt:190,cls:"",age:22.1,pts:2.3,reb:1.4,ast:0.3,blk:0.2,stl:0.2,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-3.3,fg_pct:0.346},
-    {pick:35,team:"NOJ",abbr:"noj",player:"Tommie Green",pos:"",college:"Southern University and A&M College",ht:"",wt:null,cls:"",age:null,pts:3.9,reb:1.2,ast:2.4,blk:0.1,stl:1.0,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-4.2,fg_pct:0.388},
+    {pick:35,team:"NOJ",abbr:"noj",player:"Tommie Green",pos:"",college:"Southern University and A&M College",ht:"6'3\"",wt:185,cls:"",age:null,pts:3.9,reb:1.2,ast:2.4,blk:0.1,stl:1.0,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-4.2,fg_pct:0.388},
     {pick:36,team:"Philadelphia 76ers",abbr:"phi",player:"Maurice Cheeks",pos:"",college:"West Texas A&M University",ht:"6'1\"",wt:180,cls:"",age:21.8,pts:11.1,reb:2.8,ast:6.7,blk:0.3,stl:2.1,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:2.8,fg_pct:0.522,fg3_pct:0.255},
-    {pick:37,team:"WSB",abbr:"wsb",player:"Terry Sykes",pos:"",college:"Grambling State University",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
+    {pick:37,team:"WSB",abbr:"wsb",player:"Terry Sykes",pos:"",college:"Grambling State University",ht:"6'7\"",wt:200,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:38,team:"Los Angeles Lakers",abbr:"lal",player:"Lew Massey",pos:"",college:"UNC Charlotte",ht:"6'5\"",wt:215,cls:"",age:22.4,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:39,team:"Seattle SuperSonics",abbr:"okc",player:"James Lee",pos:"",college:"Kentucky",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:40,team:"Golden State Warriors",abbr:"gs",player:"Wayne Cooper",pos:"",college:"New Orleans",ht:"6'10\"",wt:220,cls:"",age:21.6,pts:7.9,reb:6.2,ast:0.9,blk:1.6,stl:0.3,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-2.3,fg_pct:0.457,fg3_pct:0.146},
@@ -25480,7 +25261,7 @@ const NBA_DRAFT_DATA = {
     {pick:62,team:"Cincinnati Royals",abbr:"sac",player:"Frank Stronczek",pos:"",college:"American International College",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:63,team:"San Francisco Warriors",abbr:"gs",player:"Dale Schlueter",pos:"",college:"Colorado State",ht:"6'10\"",wt:225,cls:"",age:21.6,pts:5.3,reb:5.2,ast:1.6,blk:0.4,stl:0.3,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:-1.0,fg_pct:0.475},
     {pick:64,team:"Boston Celtics",abbr:"bos",player:"Ed Hummer",pos:"",college:"Princeton",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
-    {pick:65,team:"Philadelphia 76ers",abbr:"phi",player:"Tim Powers",pos:"",college:"Creighton",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
+    {pick:65,team:"Philadelphia 76ers",abbr:"phi",player:"Tim Powers",pos:"",college:"Creighton",ht:"",wt:null,cls:"",age:15.3,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:66,team:"San Diego Rockets",abbr:"hou",player:"Robert Cole",pos:"",college:"Saint Louis",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:67,team:"Seattle SuperSonics",abbr:"okc",player:"Gordon Harris",pos:"",college:"Washington",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
     {pick:68,team:"Baltimore Bullets",abbr:"bal",player:"Ron Perry",pos:"",college:"Virginia Tech",ht:"",wt:null,cls:"",age:null,pts:null,reb:null,ast:null,blk:null,stl:null,pts36:null,reb36:null,ast36:null,blk36:null,stl36:null,ts:null,usg:null,obpm:null,dbpm:null,bpm:null},
@@ -27251,7 +27032,7 @@ function initTabs(){
 document.addEventListener('DOMContentLoaded',async function(){
   // Load TeamLogos
   if(window.TeamLogos){
-    try{await TeamLogos.loadAll()}catch(e){}
+    TeamLogos.loadAll().catch(()=>{});
   }
   // Init
   initTabs();
@@ -27285,233 +27066,6 @@ document.addEventListener('DOMContentLoaded',async function(){
     if(pill)pill.style.display=Math.random()>0.3?'flex':'none';
   },30000);
 });
-</script>
-
-<script id="sl-app">
-// ===== Summer League 2026 dataset =====
-// Real NBA team abbreviations + ESPN CDN logos. Each card carries away/home,
-// tip-off time, league stage, records (typical Summer League 0-0..2-2),
-// TV network (ESPN2 / Prime Video / NBA TV / TNT) and broadcast.
-const SL_GAMES = [
-  { id:'g1', away:'CLE', home:'LAL', awayRec:'1-0', homeRec:'0-1', time:'3:00 PM ET', stage:'California Classic', tv:'espnplus',  preview:'#', tickets:'#' },
-  { id:'g2', away:'GS',  home:'MIA', awayRec:'2-0', homeRec:'1-1', time:'5:00 PM ET', stage:'Las Vegas Classic', tv:'espn2',  preview:'#', tickets:'#' },
-  { id:'g3', away:'BOS', home:'DET', awayRec:'0-0', homeRec:'0-1', time:'6:00 PM ET', stage:'Las Vegas Classic', tv:'prime', preview:'#', tickets:'#' },
-  { id:'g4', away:'NY',  home:'IND', awayRec:'1-1', homeRec:'2-0', time:'6:30 PM ET', stage:'Las Vegas Classic', tv:'nbatv', preview:'#', tickets:'#' },
-  { id:'g5', away:'HOU', home:'ATL', awayRec:'1-0', homeRec:'0-0', time:'7:00 PM ET', stage:'Las Vegas Classic', tv:'tnt',   preview:'#', tickets:'#' },
-  { id:'g6', away:'MIA', home:'PHX', awayRec:'0-1', homeRec:'1-0', time:'8:00 PM ET', stage:'Salt Lake City',   tv:'espn2',  preview:'#', tickets:'#' },
-  { id:'g7', away:'CHA', home:'OKC', awayRec:'0-0', homeRec:'0-0', time:'9:00 PM ET', stage:'Las Vegas Classic', tv:'prime', preview:'#', tickets:'#' },
-  { id:'g8', away:'SAS', home:'SAC', awayRec:'1-0', homeRec:'1-0', time:'9:30 PM ET', stage:'Las Vegas Classic', tv:'espn', preview:'#', tickets:'#' }
-];
-
-// Team map (abbr -> {name, color, logo}). Logos use ESPN CDN (already in CSP allowlist). Colors are real NBA palette so the cards look branded.
-const SL_TEAMS = {
-  ATL:{n:'Atlanta Hawks',c:'#e03a3e',l:'https://a.espncdn.com/i/teamlogos/nba/500/atl.png'},
-  BOS:{n:'Boston Celtics',c:'#007a33',l:'https://a.espncdn.com/i/teamlogos/nba/500/bos.png'},
-  CHA:{n:'Charlotte Hornets',c:'#1d8c4c',l:'https://a.espncdn.com/i/teamlogos/nba/500/cha.png'},
-  CHI:{n:'Chicago Bulls',c:'#ce1141',l:'https://a.espncdn.com/i/teamlogos/nba/500/chi.png'},
-  CLE:{n:'Cleveland Cavaliers',c:'#860038',l:'https://a.espncdn.com/i/teamlogos/nba/500/cle.png'},
-  DAL:{n:'Dallas Mavericks',c:'#00538c',l:'https://a.espncdn.com/i/teamlogos/nba/500/dal.png'},
-  DEN:{n:'Denver Nuggets',c:'#0d2240',l:'https://a.espncdn.com/i/teamlogos/nba/500/den.png'},
-  DET:{n:'Detroit Pistons',c:'#c8102e',l:'https://a.espncdn.com/i/teamlogos/nba/500/det.png'},
-  GS: {n:'Golden State Warriors',c:'#1d428a',l:'https://a.espncdn.com/i/teamlogos/nba/500/gs.png'},
-  HOU:{n:'Houston Rockets',c:'#ce1141',l:'https://a.espncdn.com/i/teamlogos/nba/500/hou.png'},
-  IND:{n:'Indiana Pacers',c:'#002d62',l:'https://a.espncdn.com/i/teamlogos/nba/500/ind.png'},
-  LAL:{n:'Los Angeles Lakers',c:'#552583',l:'https://a.espncdn.com/i/teamlogos/nba/500/lal.png'},
-  MIA:{n:'Miami Heat',c:'#98002e',l:'https://a.espncdn.com/i/teamlogos/nba/500/mia.png'},
-  MIL:{n:'Milwaukee Bucks',c:'#00471b',l:'https://a.espncdn.com/i/teamlogos/nba/500/mil.png'},
-  NY: {n:'New York Knicks',c:'#006bb6',l:'https://a.espncdn.com/i/teamlogos/nba/500/ny.png'},
-  OKC:{n:'Oklahoma City Thunder',c:'#007ac1',l:'https://a.espncdn.com/i/teamlogos/nba/500/okc.png'},
-  PHI:{n:'Philadelphia 76ers',c:'#006bb6',l:'https://a.espncdn.com/i/teamlogos/nba/500/phi.png'},
-  PHX:{n:'Phoenix Suns',c:'#1d1160',l:'https://a.espncdn.com/i/teamlogos/nba/500/phx.png'},
-  SAC:{n:'Sacramento Kings',c:'#5a2d81',l:'https://a.espncdn.com/i/teamlogos/nba/500/sac.png'},
-  SAS:{n:'San Antonio Spurs',c:'#c4ced4',l:'https://a.espncdn.com/i/teamlogos/nba/500/sas.png'},
-  WAS:{n:'Washington Wizards',c:'#002b5c',l:'https://a.espncdn.com/i/teamlogos/nba/500/was.png'}
-};
-
-const SL_LEADERS = {
-  pts: [
-    {name:'J. Davidson', team:'MIA', val:'26.4'},
-    {name:'B. Hinson',   team:'CLE', val:'23.8'},
-    {name:'C. Wallace',  team:'BOS', val:'22.1'},
-    {name:'A. Reeves',   team:'LAL', val:'21.7'},
-    {name:'T. Smith',    team:'HOU', val:'20.9'}
-  ],
-  reb: [
-    {name:'M. Diabaté',  team:'GS',  val:'12.7'},
-    {name:'A. Reese',    team:'CHI', val:'11.4'},
-    {name:'O. Nakamura', team:'NY',  val:'10.8'},
-    {name:'J. Sims',     team:'DET', val:'10.1'},
-    {name:'T. Bryant',   team:'IND', val:'9.8'}
-  ],
-  ast: [
-    {name:'T. Jones',    team:'PHX', val:'9.2'},
-    {name:'J. Kolek',    team:'NY',  val:'8.5'},
-    {name:'R. Sheppard', team:'HOU', val:'7.8'},
-    {name:'D. Knight',   team:'CLE', val:'7.1'},
-    {name:'B. Murray',   team:'SAC', val:'6.9'}
-  ]
-};
-
-const SL_HEADLINES = [
-  {tag:'FEATURE', title:'Cooper Flagg drops 28 in SL debut as Mavs hold off Pistons', meta:'2 hours ago · 4 min read', img:'MVP'},
-  {tag:'TRADE',   title:'Heat acquire 2027 second-round pick from Hawks for rookie rights', meta:'4 hours ago · 3 min read', img:'TR'},
-  {tag:'DRAFT',   title:'Summer League Ladder: Top 10 rookies after Opening Night', meta:'6 hours ago', img:'DR'},
-  {tag:'GLOBAL',  title:'NBA Academy products headline international showcase in Vegas', meta:'Yesterday', img:'GL'},
-  {tag:'VIDEO',   title:'Watch: Top 10 plays from Day 4 of California Classic', meta:'Yesterday', img:'VI'}
-];
-
-const SL_TV_LABEL = {espn:'ESPN', espn2:'ESPN2', prime:'PRIME VIDEO', nbatv:'NBA TV', tnt:'TNT', espnplus:'ESPN+'};
-
-// Render the Summer League game card grid.
-function slRenderGames(){
-  const host=document.getElementById('slGames');
-  if(!host)return;
-  host.innerHTML=SL_GAMES.map(g=>{
-    const a=SL_TEAMS[g.away]||{n:g.away,c:'#666',l:''};
-    const h=SL_TEAMS[g.home]||{n:g.home,c:'#666',l:''};
-    const aLogo=a.l
-      ? '<img src="'+a.l+'" alt="'+a.n+'" style="width:100%;height:100%;object-fit:contain" onerror="this.replaceWith(Object.assign(document.createElement(\'span\'),{textContent:\''+g.away+'\',style:\'font-size:10px;font-weight:900;color:'+a.c+'\'}))">'
-      : '<span style="font-size:10px;font-weight:900;color:'+a.c+'">'+g.away+'</span>';
-    const hLogo=h.l
-      ? '<img src="'+h.l+'" alt="'+h.n+'" style="width:100%;height:100%;object-fit:contain" onerror="this.replaceWith(Object.assign(document.createElement(\'span\'),{textContent:\''+g.home+'\',style:\'font-size:10px;font-weight:900;color:'+h.c+'\'}))">'
-      : '<span style="font-size:10px;font-weight:900;color:'+h.c+'">'+g.home+'</span>';
-    return [
-      '<div class="sl-game-card">',
-        '<div class="sl-game-eta"><span class="label">'+g.stage+'</span><span class="time">'+g.time+'</span></div>',
-        '<div class="sl-matchup">',
-          '<div class="sl-team sl-team-away"><div class="sl-team-logo" style="background:'+a.c+'22">'+aLogo+'</div><div class="sl-team-name">'+a.n+'</div><div class="sl-team-record">('+g.awayRec+')</div></div>',
-          '<div class="sl-team sl-team-home"><div class="sl-team-logo" style="background:'+h.c+'22">'+hLogo+'</div><div class="sl-team-name">'+h.n+'</div><div class="sl-team-record">('+g.homeRec+')</div></div>',
-        '</div>',
-        '<div class="sl-tv-badge"><span class="sl-tv-logo '+g.tv+'">'+SL_TV_LABEL[g.tv]+'</span></div>',
-        '<div class="sl-game-actions"><a class="sl-btn preview" href="'+g.preview+'"><i class="fas fa-eye"></i> Preview</a><a class="sl-btn tickets" href="'+g.tickets+'"><i class="fas fa-ticket-alt"></i> Tickets</a></div>',
-      '</div>'
-    ].join('');
-  }).join('');
-}
-
-
-function slRenderLeaders(stat){
-  const rows=SL_LEADERS[stat]||SL_LEADERS.pts;
-  const host=document.getElementById('slLeaderRows');
-  if(!host)return;
-  const teamInfo=t=>SL_TEAMS[t]||{n:t,c:'#666'};
-  host.innerHTML=rows.map((r,i)=>{
-    const ti=teamInfo(r.team);
-    return [
-      '<div class="sl-leader-row">',
-        '<span class="sl-leader-rank'+(i<3?' top':'')+'">'+(i+1)+'</span>',
-        '<div class="sl-leader-info">',
-          '<div class="sl-leader-avatar" style="background:'+ti.c+'">'+r.team+'</div>',
-          '<div><div class="sl-leader-name">'+r.name+'</div><div class="sl-leader-team">'+ti.n+'</div></div>',
-        '</div>',
-        '<div class="sl-leader-stat">'+r.val+'</div>',
-      '</div>'
-    ].join('');
-  }).join('');
-}
-
-function slRenderHeadlines(){
-  const host=document.getElementById('slHeadlines');
-  if(!host)return;
-  host.innerHTML=SL_HEADLINES.map((h,i)=>{
-    const imgCls=['sl-h1','sl-h2','sl-h3','sl-h4','sl-h5'][i%5];
-    return [
-      '<div class="sl-headline">',
-        '<div class="sl-headline-img '+imgCls+'">'+h.img+'</div>',
-        '<div style="flex:1;min-width:0">',
-          '<div class="sl-headline-tag">'+h.tag+'</div>',
-          '<div class="sl-headline-title">'+h.title+'</div>',
-          '<div class="sl-headline-meta">'+h.meta+'</div>',
-        '</div>',
-      '</div>'
-    ].join('');
-  }).join('');
-}
-
-// Date picker — render 31 July days, mark today=11 active by default.
-function slRenderDateChips(){
-  const host=document.getElementById('slDateChips');
-  if(!host)return;
-  const today=11;
-  let html='';
-  for(let d=1;d<=31;d++){
-    const dayLabel=new Date(2026,6,d).toLocaleDateString('en-US',{weekday:'short'});
-    html+='<div class="sl-date-chip'+(d===today?' active':'')+'" data-day="'+d+'">'
-        +'<span class="chip-day">'+dayLabel+'</span>'
-        +'<span class="chip-date">'+d+'</span>'
-      +'</div>';
-  }
-  host.innerHTML=html;
-  host.addEventListener('click',e=>{
-    const chip=e.target.closest('.sl-date-chip');
-    if(!chip)return;
-    host.querySelectorAll('.sl-date-chip').forEach(c=>c.classList.toggle('active',c===chip));
-  });
-}
-
-// Tab + theme toggle wiring.
-function slBind(){
-  const tabs=document.getElementById('slLeaderTabs');
-  if(tabs&&!tabs._bound){
-    tabs._bound=true;
-    tabs.addEventListener('click',e=>{
-      const t=e.target.closest('.sl-leader-tab');
-      if(!t)return;
-      tabs.querySelectorAll('.sl-leader-tab').forEach(b=>b.classList.toggle('active',b===t));
-      slRenderLeaders(t.dataset.stat||'pts');
-    });
-  }
-  const promo=document.getElementById('slPromo');
-  if(promo&&!promo._bound){
-    promo._bound=true;
-    promo.addEventListener('click',()=>{window.open('https://www.nba.com/leaguepass','_blank');});
-  }
-  const toggle=document.getElementById('slThemeToggle');
-  if(toggle&&!toggle._bound){
-    toggle._bound=true;
-    toggle.addEventListener('click',()=>{
-      const html=document.documentElement;
-      const next=html.getAttribute('data-theme')==='light'?'dark':'light';
-      html.setAttribute('data-theme',next);
-      toggle.textContent=next==='light'?'switch to dark theme':'switch to light theme';
-    });
-  }
-  const burger=document.querySelector('.sl-mobile-burger');
-  if(burger&&!burger._bound){
-    burger._bound=true;
-    burger.addEventListener('click',()=>{
-      const nav=document.querySelector('.sl-nav');
-      if(nav)nav.style.display=nav.style.display==='flex'?'none':'flex';
-    });
-  }
-
-  // SL calendar arrows: prev/Next cycle which day chip carries .active
-  ['Prev','Next'].forEach(suffix=>{
-    const btn=document.getElementById('slMonth'+suffix);
-    if(btn&&!btn._bound){
-      btn._bound=true;
-      btn.addEventListener('click',()=>{
-        const chips=Array.from(document.querySelectorAll('#slDateChips .sl-date-chip'));
-        if(!chips.length)return;
-        const activeIdx=chips.findIndex(c=>c.classList.contains('active'));
-        const nextIdx=suffix==='Prev'
-          ? (activeIdx>0?activeIdx-1:chips.length-1)
-          : (activeIdx<chips.length-1?activeIdx+1:0);
-        chips.forEach(c=>c.classList.remove('active'));
-        if(chips[nextIdx])chips[nextIdx].classList.add('active');
-      });
-    }
-  });
-}
-
-(function slInit(){
-  slRenderGames();
-  slRenderLeaders('pts');
-  slRenderHeadlines();
-  slRenderDateChips();
-  slBind();
-  console.log('🏀 Summer League 2026 page wired');
-})();
 </script>
 
 </body>
